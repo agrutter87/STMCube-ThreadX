@@ -23,7 +23,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "SEGGER_RTT.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -63,6 +63,14 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
 
   /* USER CODE END App_ThreadX_MEM_POOL */
   /* USER CODE BEGIN App_ThreadX_Init */
+  SEGGER_RTT_Init();
+
+  while(1)
+  {
+	  SEGGER_RTT_printf(0, "Running, ticks = %d", tx_time_get());
+	  tx_thread_sleep(TX_TIMER_TICKS_PER_SECOND);
+  }
+
   /* USER CODE END App_ThreadX_Init */
 
   return ret;
