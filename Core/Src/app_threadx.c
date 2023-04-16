@@ -67,7 +67,7 @@ UINT App_ThreadX_Init(VOID *memory_ptr)
 
   while(1)
   {
-	  SEGGER_RTT_printf(0, "Running, ticks = %d", tx_time_get());
+	  SEGGER_RTT_printf(0, "Running, ticks = %d\r\n", tx_time_get());
 	  tx_thread_sleep(TX_TIMER_TICKS_PER_SECOND);
   }
 
